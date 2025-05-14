@@ -20,7 +20,7 @@ RUN pecl install redis && docker-php-ext-enable redis
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set working directory
-WORKDIR /var/www
+WORKDIR /var/www/remeco
 
 # Set user permissions (проверка дали `www-data` постои)
 RUN id -u www-data &>/dev/null || adduser -D -u 1000 -G www-data www-data
@@ -41,7 +41,7 @@ COPY --from=builder /usr/bin/npm /usr/bin/npm
 RUN docker-php-ext-enable redis
 
 # Set working directory
-WORKDIR /var/www
+WORKDIR /var/www/remeco
 
 # Set user
 USER www-data
