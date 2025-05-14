@@ -43,7 +43,8 @@ RUN docker-php-ext-enable redis
 # Set working directory
 WORKDIR /var/www
 
-RUN chown -R www-data:www-data /var/www
-
+RUN mkdir -p /var/www/html/vendor && \
+    chown -R www:www /var/www/html
+	
 # Set user
 USER www-data
